@@ -1,0 +1,158 @@
+---
+title: "Week 1 Homework"
+author: Alicia Cooper-Volkheimer
+date: "2026-02-27"
+format: html
+toc: true
+---
+
+
+Sorry I am running behind on this course. It took me longer than expected to go through the pre-course setup modules.
+
+## Classwork
+
+First, I will work on installing the R packages for this week.
+
+Install from CRAN
+```{r}
+#| eval: false
+install.packages("dplyr")
+library(dplyr)
+sessionInfo()
+```
+
+Install from Bioconductor
+```{r}
+#| eval: false
+install.packages("BiocManager")
+library(BiocManager)
+install("PeacoQC")
+library(PeacoQC)
+sessionInfo()
+```
+
+Install from GitHub
+```{r}
+#| eval: false
+install.packages("remotes")
+library(remotes)
+install_github("hally166/flowSpectrum")
+library(flowSpectrum)
+sessionInfo()
+```
+
+Install the following packages: purrr, flowCore, flowWorkspace, stringr, ggplot2, ggcyto, tidyr, openCyto, FlowSOM, xml2, saeyslab/CytoNorm, lubridate, httr2, flowGate, devtools, plotly, biosurf/cyCombine, CytoML, Rtsne, uwot
+```{r}
+#| eval: false
+install.packages("purrr")
+install("flowCore")
+install("flowWorkspace")
+install.packages("stringr")
+install.packages("ggplot2")
+install("ggcyto")
+install.packages("tidyr")
+install("openCyto")
+install("FlowSOM")
+install.packages("xml2")
+install_github("saeyslab/CytoNorm")
+install.packages("lubridate")
+install.packages("httr2")
+install("flowGate")
+install.packages("devtools")
+install.packages("plotly")
+install_github("biosurf/cyCombine")
+install("CytoML")
+install.packages("Rtsne")
+install.packages("uwot")
+
+```
+
+Add these packages to library
+```{r}
+#| eval: false
+library(purrr)
+library(flowCore)
+library(flowWorkspace)
+library(stringr)
+library(ggplot2)
+library(ggcyto)
+library(tidyr)
+library(openCyto)
+library(FlowSOM)
+library(xml2)
+library(CytoNorm)
+library(lubridate)
+library(httr2)
+library(flowGate)
+library(devtools)
+library(plotly)
+library(cyCombine)
+library(CytoML)
+library(Rtsne)
+library(uwot)
+```
+
+## Homework
+
+### Take-home Problem 1
+*We installed PeacoQC during this session, but we didn’t have time to explore what functions are present within the package. Using what you have learned about accessing documentation, figure out and list what functions it contains*
+
+```{r}
+#| eval: false
+help(package = PeacoQC)
+```
+
+PeacoQC	Peak-based detection of high quality cytometry data  
+PeacoQCHeatmap	Make overview heatmap of quality control analysis  
+PlotPeacoQC	Visualise deleted cells of PeacoQC  
+RemoveDoublets	Remove doublet events from flow cytometry data  
+RemoveMargins	Remove margin events of flow cytometry data  
+
+### Take-home Problem 2
+*Take a closer look at the list of Bioconductor cytometry packages. Report back on how many there are currently in Bioconductor, the author/maintainer with the most contributed cytometry R packages, and a couple packages that you would be interested in exploring more in-depth later in the course.*
+
+On the Bioconductor website, under Packages > Technology > Flow Cytometry there are 69 packages listed. 7 of these are attributed to Mike Jiang, which I think is the most. The ones we have already installed are
+
+PeacoQC  
+flowCore  
+flowWorkspace  
+ggcyto  
+openCyto  
+FlowSOM  
+flowGate  
+CytoML  
+
+Aside from these, I am most interested in flowClust, flowStats, CATALYST, flowAI.
+
+### Take-home Problem 3
+*There is another way to install R packages, using the newer pak package. Positron uses this when installing suggested dependencies.*
+
+*After learning more about it via the documentation and it’s pkgdown website, I would like you to attempt to install the following three R packages using this newer method: “broom”, “cytoMEM”, “DillonHammill/CytoExploreR”.*
+
+*Take screenshots, and in a new quarto markdown document, describe how the installation process differed from what you saw for install.packages(), install() and install_github().*
+
+
+```{r}
+#| eval: false
+install.packages("pak")
+library(pak)
+```
+
+
+```{r}
+#| eval: false
+
+pkg_install("broom")
+pkg_install("cytoMEM")
+# pkg_install("DillonHammill/CytoExploreR")
+
+pkg_install("exaexa/EmbedSOM")
+pkg_install("superheat")
+pkg_install("rlbarter/superheat")
+pkg_install("DillonHammill/CytoExploreR")
+
+```
+
+It is convenient that you don't have to use different commands depending on the location of the package. However, for the CytoExploreR, I had some trouble because it could not find the dependencies. I had to search for EmbedSOM, which was no longer on CRAN, and I found the GitHub link for it. Then I also had to manually tell it to get superheat, but when I did, it was the wrong version. I found another version on GitHub and updated to that one. Only then was it able to install CytoExploreR. The screen shots are in the images folder. 
+
+Sorry I did not make a new quarto markdown document as instructed.
